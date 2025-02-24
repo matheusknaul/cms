@@ -51,6 +51,20 @@ public class Article {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
+	
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
 
 	public Category getCategory() {
 		return category;

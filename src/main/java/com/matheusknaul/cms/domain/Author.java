@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public abstract class Author implements Serializable{
+public class Author implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -21,8 +23,9 @@ public abstract class Author implements Serializable{
 	protected String email;
 	protected String password;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "author")
-	private List<Article> articles = new ArrayList<>();
+	private List<Article> articles = new ArrayList<Article>();
 	
 	public Author() {
 		super();
