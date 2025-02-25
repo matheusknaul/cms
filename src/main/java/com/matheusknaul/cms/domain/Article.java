@@ -2,6 +2,8 @@ package com.matheusknaul.cms.domain;
 
 import java.util.Objects;
 
+import com.matheusknaul.cms.domain.enums.Status;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -23,14 +25,17 @@ public class Article {
 	@JoinColumn(name = "user_id")
 	private Author author;
 
+	private Status status;
+	
 	public Article() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Article(Integer id, String title, Category category, Author author) {
+	public Article(Integer id, Status status, String title, Category category, Author author) {
 		super();
 		this.id = id;
+		this.status = status;
 		this.title = title;
 		this.category = category;
 		this.author = author;
@@ -43,6 +48,14 @@ public class Article {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 	public String getTitle() {
 		return title;
@@ -51,8 +64,6 @@ public class Article {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
-	
 
 	public String getContent() {
 		return content;
