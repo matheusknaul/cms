@@ -19,10 +19,11 @@ public class Article {
 	private String content;
 	
 	@ManyToOne
+	@JoinColumn(name = "category_id")
 	private Category category;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "author_id")
 	private Author author;
 
 	private Status status;
